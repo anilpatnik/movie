@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Movie.Models\Movie.Models.csproj" />
+    <ProjectReference Include="..\Movie.Repositories\Movie.Repositories.csproj" />
+    <ProjectReference Include="..\Movie.Resources\Movie.Resources.csproj" />
+  </ItemGroup>
+
+</Project>
