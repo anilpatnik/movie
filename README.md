@@ -30,6 +30,36 @@
 4. UI opens in browser with https://localhost:44348
 5. API opens in browser with https://localhost:44348/swagger
 
+## Switch to SQL Server
+
+Project was built to work with both In-Memory and SQL Server
+
+**Startup.cs** Use one of the providers as shown below and remove the redundant code
+
+```
+// Database Connection String
+if (_env.IsDevelopment())
+{
+    // In Memory
+    services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("AppDbContext"));
+}
+else
+{
+    // Sql Server
+    services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SqlDbContext")));
+}
+```
+
+**appsettings.json** Make sure to update your database connecting string here for SQL Server
+
+```
+"ConnectionStrings": {
+    "AppDbContext": "data-in-memory",
+    "SqlDbContext": "Server=localhost;Database=Movies;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+  
+```
+
 ## Swagger API
 
 ![Algorithm schema](api.png)
