@@ -6,7 +6,9 @@ namespace Movie.Repositories
     public interface IMoviesRepository
     {
         Task<IEnumerable<Models.Movie>> ListAsync();
-        
+
+        Task<Models.Movie> GetAsync(int id);
+
         Task AddAsync(Models.Movie movie);
         
         Task<Models.Movie> FindByIdAsync(int id);

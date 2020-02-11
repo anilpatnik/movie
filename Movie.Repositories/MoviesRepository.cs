@@ -13,6 +13,11 @@ namespace Movie.Repositories
             return await _context.Movie.Include(x => x.Genre).AsNoTracking().ToListAsync();
         }
 
+        public async Task<Models.Movie> GetAsync(int id)
+        {
+            return await _context.Movie.Include(x => x.Genre).AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(id));
+        }
+
         public async Task AddAsync(Models.Movie movie)
         {
             await _context.Movie.AddAsync(movie);

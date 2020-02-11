@@ -27,6 +27,11 @@ namespace Movie.Services
             return await _moviesRepository.ListAsync();
         }
 
+        public async Task<Models.Movie> GetAsync(int id)
+        {
+            return await _moviesRepository.GetAsync(id);
+        }
+
         public async Task<MovieResponse> SaveAsync(Models.Movie movie)
         {
             try

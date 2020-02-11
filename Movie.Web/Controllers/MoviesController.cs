@@ -34,6 +34,22 @@ namespace Movie.Web.Controllers
         }
 
         /// <summary>
+        /// Get movie for a given identifier.
+        /// </summary>
+        /// <param name="id">Movie identifier.</param>
+        /// <returns>Get movie.</returns>
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(MovieDto), 200)]
+        public async Task<IActionResult> GetAsync(int id)
+        {
+            var movie = await _moviesService.GetAsync(id);
+
+            var response = _mapper.Map<Models.Movie, MovieDto>(movie);
+
+            return Ok(response);
+        }
+
+        /// <summary>
         /// Saves a new movie.
         /// </summary>
         /// <param name="model">Movie data.</param>
