@@ -1,27 +1,69 @@
-# Movie.Web
+# Movies API and UI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+### Frameworks and Libraries
 
-## Development server
+* ASP.NET Core 3.0
+* Entity Framework Core (for data access)
+* Entity Framework In-Memory Provider (for testing purposes)
+* Entity Framework Sql Server Provider (for production)
+* Dependency Injection Core
+* AutoMapper (for mapping resources and models)
+* Swashbuckle (API documentation)
+* Angular 8
+* Bootstrap 4
+* TypeScript
+* ngx Toast (for error notifications)
+* Lodash
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## IDE and Tools
 
-## Code scaffolding
+* Visual Studio Code 1.42.0
+* Visual Studio 2019 Community 16.3.9
+* SQL Server Management Studio 18.4
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Build and Run
 
-## Build
+1. Git clone the project
+2. Checkout master and pull latest
+3. Build using Visual Studio 2019
+3. Run UI and API with **Crtl + F5**
+4. UI opens in browser with https://localhost:44348 (automatically)
+5. API opens in browser with https://localhost:44348/swagger (manually)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Switch to SQL Server
 
-## Running unit tests
+Project was built to work with In-Memory (default) and SQL Server
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Startup.cs** Use one of the providers as shown below and remove the redundant code
 
-## Running end-to-end tests
+```
+// Database Connection String
+if (_env.IsDevelopment())
+{
+    // In Memory
+    services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("AppDbContext"));
+}
+else
+{
+    // Sql Server
+    services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SqlDbContext")));
+}
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+**appsettings.json** Make sure to update your database connecting string here for SQL Server
 
-## Further help
+```
+"ConnectionStrings": {
+    "AppDbContext": "data-in-memory",
+    "SqlDbContext": "Server=localhost;Database=Movies;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+  
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Swagger API
+
+![Algorithm schema](api.png)
+
+## Angular UI
+
+![Algorithm schema](ui.png)
