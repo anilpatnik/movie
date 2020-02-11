@@ -27,8 +27,8 @@
 2. Checkout master and pull latest
 3. Build using Visual Studio 2019
 3. Run UI and API with **Crtl + F5**
-4. UI opens in browser with https://localhost:44348
-5. API opens in browser with https://localhost:44348/swagger
+4. UI opens in browser with https://localhost:44348 (automatically)
+5. API opens in browser with https://localhost:44348/swagger (manually)
 
 ## Switch to SQL Server
 
