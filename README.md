@@ -32,7 +32,7 @@
 
 ## Switch to SQL Server
 
-Project was built to work with both In-Memory and SQL Server
+Project was built to work with In-Memory (default) and SQL Server
 
 **Startup.cs** Use one of the providers as shown below and remove the redundant code
 
