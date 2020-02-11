@@ -1,0 +1,76 @@
+<div class="card card-body bg-light">
+  <div class="card-body">
+    <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit(userForm)">
+      <div class="form-group col-md-6">
+        <label>Name</label>
+        <input
+          name="name"
+          class="form-control"
+          [(ngModel)]="model.name"
+          #name="ngModel"
+          [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }"
+          required
+        />
+        <div class="invalid-feedback" *ngIf="userForm.submitted && name.invalid">
+          <p *ngIf="name.errors.required">Name is required</p>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Code</label>
+        <input
+          class="form-control"
+          name="code"
+          [(ngModel)]="model.code"
+          #code="ngModel"
+          [ngClass]="{ 'is-invalid': userForm.submitted && code.invalid }"
+          required
+          [attr.disabled]="isDup || null"
+        />
+        <div *ngIf="userForm.submitted && code.invalid" class="invalid-feedback">
+          <div *ngIf="code.errors.required">Code is required</div>
+        </div>
+      </div>
+      <div class="form-group col-md-6">
+        <label>Slug</label>
+        <input
+          type="text"
+          class="form-control"
+          name="slug"
+          [(ngModel)]="model.slug"
+          [attr.disabled]="isDup || null"
+        />
+      </div>
+      <div class="form-group col-md-6">
+        <label>Genre</label>
+        <select
+          class="form-control"
+          name="genre"
+          [(ngModel)]="model.genre"
+          #genre="ngModel"
+          [ngClass]="{ 'is-invalid': userForm.submitted && genre.invalid }"
+          required
+          [attr.disabled]="isDup || null"
+        >
+          <option value=""></option>
+          <option *ngFor="let genre of genres" [value]="genre.id">
+            {{ genre.name }}
+          </option>
+        </select>
+        <div *ngIf="userForm.submitted && genre.invalid" class="invalid-feedback">
+          <div *ngIf="genre.errors.required">Genre is required</div>
+        </div>
+      </div>
+      <div class="form-group row col-md-8">
+        <div class="col-md-2">
+          <button class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-md-2" *ngIf="model.id">
+          <button type="button" class="btn btn-danger" (click)="onDelete(model.id)">Delete</button>
+        </div>
+        <div class="col-md-2">
+          <button type="button" class="btn btn-secondary" [routerLink]="['/']">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

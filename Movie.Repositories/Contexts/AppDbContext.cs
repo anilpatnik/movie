@@ -42,16 +42,16 @@ namespace Movie.Repositories
 
             modelBuilder.Entity<Models.Movie>().HasData
             (
-                new Models.Movie { Id = 101, Name = "Avengers Endgame", Code = "AAA", Slug = "movie-101", GenreId = 101 }, // Id set manually due to in-memory provider
-                new Models.Movie { Id = 102, Name = "The Witcher", Code = "BBB", Slug = "movie-102", GenreId = 107 },
-                new Models.Movie { Id = 103, Name = "The Good Place", Code = "CCC", Slug = "movie-103", GenreId = 108 },
-                new Models.Movie { Id = 104, Name = "Friends", Code = "DDD", Slug = "movie-104", GenreId = 101 },
-                new Models.Movie { Id = 105, Name = "The Good Place", Code = "EEE", Slug = "movie-105", GenreId = 105 },
-                new Models.Movie { Id = 106, Name = "The Lion King", Code = "FFF", Slug = "movie-106", GenreId = 110 },
-                new Models.Movie { Id = 107, Name = "The Witcher", Code = "GGG", Slug = "movie-107", GenreId = 101 },
-                new Models.Movie { Id = 108, Name = "Avengers Endgame", Code = "HHH", Slug = "movie-108", GenreId = 102 },
-                new Models.Movie { Id = 109, Name = "The Witcher", Code = "III", Slug = "movie-109", GenreId = 107 },
-                new Models.Movie { Id = 110, Name = "The Outsider", Code = "JJJ", Slug = "movie-110", GenreId = 104 }
+                new Models.Movie { Id = 101, Name = "Avengers Endgame", Code = "TT4154796", Slug = "https://www.imdumb.com/title/tt4154796", GenreId = 101 }, // Id set manually due to in-memory provider
+                new Models.Movie { Id = 102, Name = "The Witcher", Code = "TT4154334", Slug = "https://www.imdumb.com/title/tt4154334", GenreId = 107 },
+                new Models.Movie { Id = 103, Name = "The Good Place", Code = "TT41456896", Slug = "https://www.imdumb.com/title/tt41456896", GenreId = 108 },
+                new Models.Movie { Id = 104, Name = "Friends", Code = "TT0108778", Slug = "https://www.imdumb.com/title/tt0108778", GenreId = 101 },
+                new Models.Movie { Id = 105, Name = "The Good Place", Code = "TT22244796", Slug = "https://www.imdumb.com/title/tt22244796", GenreId = 105 },
+                new Models.Movie { Id = 106, Name = "The Lion King", Code = "TT12455796", Slug = "https://www.imdumb.com/title/tt12455796", GenreId = 110 },
+                new Models.Movie { Id = 107, Name = "The Witcher", Code = "TT4176696", Slug = "https://www.imdumb.com/title/tt4176696", GenreId = 101 },
+                new Models.Movie { Id = 108, Name = "Avengers Endgame", Code = "TT9974596", Slug = "https://www.imdumb.com/title/tt9974596", GenreId = 102 },
+                new Models.Movie { Id = 109, Name = "The Witcher", Code = "TT6676096", Slug = "https://www.imdumb.com/title/tt6676096", GenreId = 107 },
+                new Models.Movie { Id = 110, Name = "The Outsider", Code = "TT40076596", Slug = "https://www.imdumb.com/title/tt40076596", GenreId = 104 }
             );
         }
     }

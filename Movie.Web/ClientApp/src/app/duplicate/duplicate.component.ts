@@ -5,10 +5,10 @@ import * as _ from "lodash";
 import { IMovies } from "../interfaces/imovies";
 
 @Component({
-  selector: "app-home",
-  templateUrl: "./home.component.html"
+  selector: "app-duplicate",
+  templateUrl: "./duplicate.component.html"
 })
-export class HomeComponent {
+export class DuplicateComponent {
   movies: IMovies[];
 
   constructor(
@@ -30,17 +30,22 @@ export class HomeComponent {
         let payload = result;
         // sorted data
         payload = _.orderBy(payload, ["name"], ["asc"]);
+        // group by movie name - duplicate movies
+        payload = _.chain(payload)
+          .groupBy("name")
+          .map((v, i) => {
+            if (v.length > 1)
+              return {
+                id: _.first(v).id,
+                name: i,
+                count: v.length
+              };
+          })
+          .filter(x => x !== undefined)
+          .value();
         // payload with temp id
         this.movies = _.map(payload, o => _.extend({ index: index++ }, o));
       },
-      error => this.toaster.open(error)
-    );
-  }
-
-  // deletes movie on X click
-  onDelete(id) {
-    this.http.delete<any>(`${this.baseUrl}api/movies/${id}`).subscribe(
-      result => this.getMovies(),
       error => this.toaster.open(error)
     );
   }

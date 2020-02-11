@@ -14,12 +14,15 @@ namespace Movie.Web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IWebHostEnvironment _env;
+
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            _env = env;
         }
 
-        public IConfiguration Configuration { get; }
+        public IConfiguration Configuration { get; }        
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -37,7 +40,16 @@ namespace Movie.Web
             });
 
             // Database Connection String
-            services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("AppDbContext"));            
+            if (_env.IsDevelopment())
+            {
+                // In Memory
+                services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("AppDbContext"));
+            }
+            else
+            {
+                // Sql Server
+                services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("SqlDbContext")));
+            }
 
             // Configure Auto Mapper
             services.AddAutoMapper(typeof(Startup));

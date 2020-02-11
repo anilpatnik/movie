@@ -57,6 +57,9 @@ namespace Movie.Services
             }
 
             existingMovie.Name = movie.Name;
+            existingMovie.Code = movie.Code;
+            existingMovie.Slug = movie.Slug;
+            existingMovie.GenreId = movie.GenreId;            
 
             try
             {

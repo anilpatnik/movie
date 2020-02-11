@@ -5,25 +5,16 @@
       <tr>
         <th>#</th>
         <th>Movie</th>
-        <th>Code</th>
-        <th>Genre</th>
-        <th>Slug</th>
         <th>Edit</th>
-        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let movie of movies">
         <td>{{ movie.index }}</td>
-        <td>{{ movie.name }}</td>
-        <td>{{ movie.code }}</td>
-        <td>{{ movie.genre.name }}</td>
-        <td>
-          <a target="_blank" href="{{ movie.slug }}">{{ movie.slug }}</a>
-        </td>
+        <td>{{ movie.name }} ({{ movie.count }})</td>
         <td>
           <a
-            [routerLink]="['/movies/edt', movie.id]"
+            [routerLink]="['/movies/dup', movie.id]"
             [routerLinkActive]="['link-active']"
             [routerLinkActiveOptions]="{ exact: false }"
           >
@@ -43,29 +34,6 @@
               <path
                 fill-rule="evenodd"
                 d="M14.146 8.354l-2.5-2.5.708-.708 2.5 2.5-.708.708zM5 12v.5a.5.5 0 00.5.5H6v.5a.5.5 0 00.5.5H7v.5a.5.5 0 00.5.5H8v-1.5a.5.5 0 00-.5-.5H7v-.5a.5.5 0 00-.5-.5H5z"
-                clip-rule="evenodd"
-              ></path>
-            </svg>
-          </a>
-        </td>
-        <td>
-          <a href="javascript:void(0)" (click)="onDelete(movie.id)">
-            <svg
-              class="bi bi-x-square"
-              width="32"
-              height="32"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M16 3H4a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1zM4 2a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2V4a2 2 0 00-2-2H4z"
-                clip-rule="evenodd"
-              ></path>
-              <path
-                fill-rule="evenodd"
-                d="M9.293 10L6.646 7.354l.708-.708L10 9.293l2.646-2.647.708.708L10.707 10l2.647 2.646-.708.708L10 10.707l-2.646 2.647-.708-.707L9.293 10z"
                 clip-rule="evenodd"
               ></path>
             </svg>
