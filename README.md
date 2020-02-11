@@ -15,14 +15,20 @@
 * ngx Toast (for error notifications)
 * Lodash
 
-* Lodash
-* Lodash
+## IDE and Tools
 
-## 
+* Visual Studio Code 1.42.0
+* Visual Studio 2019 Community 16.3.9
+* SQL Server Management Studio 18.4
 
-## Build
+## Build and Run
 
-## Running unit tests
+1. Git clone the project
+2. Checkout master and pull latest
+3. Build using Visual Studio 2019
+3. Run UI and API with **Crtl + F5
+4. UI opens in browser with https://localhost:44348
+5. API opens in browser with https://localhost:44348/swagger
 
 ## Swagger API
 
