@@ -17,5 +17,3 @@ jobs:
       run: dotnet build --configuration Release
     - name: Create the package
       run: dotnet pack --configuration Release
-    - name: Publish the package to GPR
-      run: dotnet nuget push "bin/Release/movie.1.0.0.nupkg"
